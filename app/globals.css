@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f6f4ef;
+    color: #1e1e1e;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+}
+
+.page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 20px 80px
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-start;
+    margin-bottom: 28px
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin: 0 0 10px
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.05;
+    margin: 0 0 12px
+}
+
+.sub {
+    max-width: 760px;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.55
+}
+
+.badge {
+    background: #fff;
+    border: 1px solid #ddd6cc;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 13px;
+    white-space: nowrap
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e2ddd5;
+    border-radius: 18px;
+    padding: 24px;
+    margin: 18px 0;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .04)
+}
+
+h2 {
+    margin-top: 0
+}
+
+.hint {
+    color: #6d6a65;
+    line-height: 1.5
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px
+}
+
+.row input,
+.row textarea,
+.answer,
+select {
+    width: 100%;
+    border: 1px solid #cfc9c0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    background: white;
+    font: inherit
+}
+
+.row button,
+.submitRow button {
+    border: 0;
+    border-radius: 10px;
+    background: #1f1f1f;
+    color: #fff;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.row button:disabled,
+.submitRow button:disabled {
+    opacity: .5;
+    cursor: not-allowed
+}
+
+.message {
+    margin: 14px 0 0;
+    color: #6d6a65
+}
+
+.sourceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+    margin-top: 18px
+}
+
+.source {
+    border: 1px solid #e4dfd7;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px
+}
+
+.source span {
+    color: #777
+}
+
+.errorBox {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #fff3f0;
+    color: #9d3024
+}
+
+.typeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px
+}
+
+.check {
+    display: flex;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid #e4dfd7;
+    border-radius: 12px
+}
+
+.check span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+}
+
+.check small {
+    color: #8a857d
+}
+
+.controls {
+    justify-content: space-between;
+    align-items: end
+}
+
+.controls label {
+    min-width: 180px;
+    color: #555
+}
+
+.controls select {
+    margin-left: 8px;
+    width: auto
+}
+
+.quizHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.quizHead span {
+    color: #777
+}
+
+.question {
+    padding: 22px 0;
+    border-top: 1px solid #eee
+}
+
+.qmeta {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #857e74;
+    font-weight: 800
+}
+
+.question h3 {
+    font-size: 21px;
+    margin: 8px 0 16px
+}
+
+.options {
+    display: grid;
+    gap: 8px
+}
+
+.options label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e5e0d8;
+    border-radius: 10px;
+    cursor: pointer
+}
+
+.quizImage {
+    max-width: 330px;
+    max-height: 240px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid #e4dfd7;
+    margin: 4px 0 14px
+}
+
+.feedback {
+    margin-top: 10px;
+    font-weight: 700
+}
+
+.good {
+    color: #237a4b
+}
+
+.bad {
+    color: #b83a2b
+}
+
+.submitRow {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px
+}
+
+.result {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 14px;
+    background: #f3f0ea
+}
+
+.score {
+    font-size: 42px;
+    font-weight: 900
+}
+
+.percent {
+    margin-left: 10px;
+    color: #777
+}
+
+.wrongItem {
+    padding: 16px 0;
+    border-top: 1px solid #eee;
+    line-height: 1.7
+}
+
+.vivaBox {
+    padding: 16px;
+    border-radius: 14px;
+    background: #f7f4ed
+}
+
+.vivaBox p {
+    margin-top: 0;
+    color: #6d6a65
+}
+
+.secondary,
+.self {
+    border: 1px solid #d4cec4;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.vivaAnswer {
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #ddd6cc;
+    font-size: 18px;
+    font-weight: 700
+}
+
+.vivaButtons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px
+}
+
+.self.correct {
+    border-color: #4d9b6a
+}
+
+.self.selectedWrong {
+    border-color: #c35b4e
+}
+
+.self:disabled {
+    opacity: .6;
+    cursor: not-allowed
+}
+
+@media(max-width:700px) {
+    .hero {
+        flex-direction: column
+    }
+
+    .hero h1 {
+        font-size: 34px
+    }
+
+    .row {
+        flex-direction: column
+    }
+
+    .controls {
+        align-items: stretch
+    }
+
+    .controls label {
+        min-width: 0
+    }
+
+    .controls select {
+        margin-left: 0;
+        width: 100%
+    }
+
+    .source {
+        flex-direction: column
+    }
+
+    .page {
+        padding: 28px 14px 60px
+    }
+}
