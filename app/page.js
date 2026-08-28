@@ -12,7 +12,7 @@ const PROFILE_META = {
     icon: '👨',
   },
   leela: {
-    name: 'Leela:)',
+    name: 'Leela',
     icon: '👩',
   },
 };

@@ -3,7 +3,7 @@ import './globals.css';
 export const metadata = {
   title: 'German Practice',
   description:
-    'German practice with my cutie bangaram :)',
+    'German practice :(',
 };
 
 export default function RootLayout({
