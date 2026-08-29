@@ -1,64 +1,115 @@
-# German Viva Quiz — multi-Notion edition
+# German Viva — Two Profile Edition
 
-This version syncs all five of your German Notion databases in one click:
+This project is the two-user version of the working German A1 practice app.
 
-1. **Verbs** — `86817998fa2a4f93994578332f43a28a`
-2. **Questions & Answers** — `49b840d0124341ecb60eaa9771162c43`
-3. **Nouns & Articles** — `a1034b47f85c4acc8f034bc9ea4e6620`
-4. **Opposites** — `04f5f69f149f49438f7d22c66e62d496`
-5. **Other Key Vocabulary** — `cb2aea35c68547c2bea364b2571fafe3`
+It supports:
 
-The IDs are built into `lib/notion.js`, so you do **not** need to paste them every time.
+- Sandeep profile
+- Leela profile
+- Separate Notion integration/token for each profile
+- A different number of Notion databases for each profile
+- Automatic discovery of databases shared with each Notion integration
+- Dynamic practice categories based on the columns/content that actually exist
+- German → English
+- English → German
+- Writing practice
+- Opposites
+- Verb meanings
+- Verb conjugation
+- Articles
+- Plurals
+- Stored Notion viva questions
+- Random AI Conversation
+- Random AI Viva
+- Separate Gemini API key and quota for each profile
+- Separate persistent AI question history in each browser/device
 
-## Setup
+## Quick setup
 
-1. Create a Notion internal integration.
-2. Share **each of the five databases** with that integration.
-3. Copy `.env.example` to `.env.local`.
-4. Put your token in `.env.local`:
+Open `.env.local`.
+
+Sandeep's existing Notion token and Gemini key have already been migrated into this copy.
+
+You only need to add Leela's values:
 
 ```env
-NOTION_TOKEN=secret_...
+LEELA_NOTION_TOKEN=
+LEELA_GEMINI_API_KEY=
 ```
 
-5. Install and run:
+`LEELA_NOTION_SOURCE_IDS` is optional.
+
+### Recommended Notion setup
+
+Create a separate Notion internal integration for Leela.
+
+Share only the German databases/pages she wants to practice with that integration.
+
+Leave:
+
+```env
+LEELA_NOTION_SOURCE_IDS=
+```
+
+blank.
+
+The app will automatically discover every database that is accessible to Leela's integration.
+
+The same dynamic discovery works for Sandeep.
+
+If you want to restrict a profile to specific sources instead, use a comma-separated list:
+
+```env
+SANDEEP_NOTION_SOURCE_IDS=id1,id2,id3
+LEELA_NOTION_SOURCE_IDS=idA,idB
+```
+
+IDs and full Notion URLs are both accepted.
+
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000 and click **Sync All Notion**.
+Then open:
 
-## What is generated
+http://localhost:3000
 
-### Verbs
-- German → English
-- English → German
-- Verb meaning
-- `ich`, `du`, `er/sie/es` conjugation questions
-- Notes such as irregular/separable/reflexive information are retained
+Pick Sandeep or Leela.
 
-### Questions & Answers
-These become **🎤 Viva questions**. The app asks the exact German question from Notion, lets you answer aloud, then reveal the stored answer and self-mark it as correct or needing practice.
+## Profile behavior
 
-### Nouns & Articles
-- der/die/das
-- English → German
-- German → English
-- plural questions
+The selected profile is remembered on that phone/browser.
 
-### Opposites
-- German word → opposite
+Use `Switch user` at the top to change profiles.
 
-### Other Key Vocabulary
-- German → English
-- English → German
+AI history is stored separately:
 
-## Extra sources
+- `german-ai-memory-v2-sandeep`
+- `german-ai-memory-v2-leela`
 
-You can paste additional Notion IDs/URLs into the optional box. Or set `NOTION_SOURCE_IDS` in `.env.local` as comma-separated IDs.
+So the tutor's old questions do not mix between profiles.
 
-## Security
+## Vercel deployment
 
-Never put `NOTION_TOKEN` in a `NEXT_PUBLIC_` variable. It is only used on the server.
+`.env.local` is ignored by Git, so add the same environment variables in Vercel:
+
+- `SANDEEP_NOTION_TOKEN`
+- `SANDEEP_NOTION_SOURCE_IDS` (optional)
+- `SANDEEP_GEMINI_API_KEY`
+- `LEELA_NOTION_TOKEN`
+- `LEELA_NOTION_SOURCE_IDS` (optional)
+- `LEELA_GEMINI_API_KEY`
+- `GEMINI_MODEL=gemini-3.6-flash`
+
+Then redeploy.
+
+## Important
+
+There is intentionally no authentication.
+
+Anyone who has the app URL can click either profile.
+
+The Notion and Gemini keys still remain server-side and are not sent to browser JavaScript.

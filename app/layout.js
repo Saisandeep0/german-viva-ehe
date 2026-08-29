@@ -1,8 +1,14 @@
 import './globals.css';
 
-export const metadata = { title: 'German Viva Quiz', description: 'Random A1 German practice from Notion' };
+export const metadata = {
+  title: 'German Practice',
+  description:
+    'German practice :(',
+};
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}) {
   return (
     <html lang="en">
       <body>{children}</body>
